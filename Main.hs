@@ -3,9 +3,11 @@ module Main where
 main :: IO ()
 main = do
   putStrLn "Euler 1"
-  let n = getsumofmultiples 1 0
-  print n
+  let n1 = getsumofmultiples 1 0
+  print n1
   putStrLn "Euler 2"
+  let n2 = create_fibonacci_list 1 2 2
+  print n2
 
 -- First problem
 
@@ -19,16 +21,11 @@ addforthisnumber a = max (if' (mod a 3==0) a 0) (if' (mod a 5==0) a 0)
 
 
 -- Second problem
-
-
-
-
-
-
-
-
-
-
+-- First and second is current fibonacci number, third is sum
+create_fibonacci_list :: Int -> Int -> Int -> Int
+create_fibonacci_list a b x
+    | a+b >=4000000    = x
+    | otherwise = create_fibonacci_list b (a+b) (x+ (if'(mod (a+b) 2==0) (a+b) 0)) 
 
 --Helpers
 
